@@ -1,0 +1,12 @@
+version: '2'
+services:
+  nginx-reverseproxy:
+    image: jwilder/nginx-proxy
+    container_name: nginx-reverseproxy
+    restart: always
+    environment:
+      DEFAULT_HOST: default.vhost
+    ports:
+      - "80:80"
+    volumes:
+      - /var/run/docker.sock:/tmp/docker.sock:ro
